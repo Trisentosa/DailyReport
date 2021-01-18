@@ -1,0 +1,68 @@
+<% layout('./layouts/boilerplate') %>
+    <div class="card text-center mb-3 bg-secondary">
+        <%- include('./partials/navbar') %>
+        <div class="card-body bg-dark">
+            <div class="card-title">
+                <h3 class="text-white text-capitalize text-center mb-2">
+                    Settings
+                </h3>
+            </div>
+            <div class="card bg-secondary border mb-2 mx-auto" style="max-width: 500px;">
+                <form action="/page" method="POST" class="validated-form" novalidate>
+                    <div class="form-group mx-3">
+                        <label class="form-label text-light" for="country">Country</label>
+                        <div class="input-group mb-2">
+                            <select class="custom-select" id="country" name="input[country]">
+                                <% for(let country of countryCodes){ %>
+                                    <option value="<%= country.code %>" <%=country.label==='United States'?'selected':''%> >
+                                        <%= country.label %>
+                                    </option>
+                                    <% } %>
+                                <div class="valid-feedback">Looks Good!</div>
+                            </select>
+                        </div>
+                        <div class="mb-3" id="stateOption">
+                            <label class="form-label text-light" for="state">States</label>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="state" name="input[state]" required>
+                                    <option>--</option>
+                                </select>
+                                <div class="valid-feedback">Looks Good!</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-2">
+                            <label class="form-label text-light" for="city">City</label>
+                            <div class="input-group mb-2">
+                                <select class="custom-select" id="city" name="input[city]" required>
+                                    <option>--</option>
+                                </select>
+                                <div class="valid-feedback">Looks Good!</div>
+                            </div>
+                        </div>
+             
+                        <div class="mb-2">
+                            <label class="form-label text-light" for="category">Category</label>
+                            <input class="form-control" type="text" name="input[category]" id="category"
+                                placeholder="Enter a category...(e.g Food, Business)" value="<%= categoryInput %>" required>
+                            <div class="valid-feedback">Looks Good!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-light" for="city">Temperature:</label>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="city" name="input[temp]" required>
+                                    <option value="celcius">Celcius</option>
+                                    <option value="fahrenheit">Fahrenheit</option>
+                                </select>
+                                <div class="valid-feedback">Looks Good!</div>
+                            </div>
+                        </div>
+                     
+                        <button class="btn btn-success mb-3">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/javascripts/citiesAndCountries.js"></script>
+    <script src="/javascripts/validateForms.js"></script>

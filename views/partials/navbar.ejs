@@ -1,0 +1,21 @@
+<div class="card-header">
+    <ul class="nav">
+        <li class="nav-item mx-auto">
+            <form action="/weather" method="POST">
+                <button class="btn btn-block <%= state==="weather"?'btn-info font-weight-bold':'btn-dark'%>">
+                    Weather</button>
+            </form>
+        </li>
+        <li class="nav-item mx-auto">
+            <form action="/news" method="POST">
+                <button class="btn <%= state==="news"?'btn-info font-weight-bold':'btn-dark'%>" >News</button>
+            </form>
+        </li>
+        <li class="nav-item mx-auto">
+            <form action="/settings" method="POST">
+                <button class="btn <%= state==="settings"?'btn-info font-weight-bold':'btn-dark'%>"
+                    >Settings</button>
+            </form>
+        </li>
+    </ul>
+</div>
