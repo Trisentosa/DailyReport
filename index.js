@@ -174,7 +174,7 @@ app.get('/weather',isFormFilled, (req, res,next) => {
                     dayReport.m_data.push(newData);
                 }
             }
-            res.render('weather.ejs', { weatherReport, currentWeather, state })
+            res.render('weather.ejs', { weatherReport, currentWeather, state,tempInput })
         }))
         .catch((error) => {
             throw new ExpressError(error, 400)

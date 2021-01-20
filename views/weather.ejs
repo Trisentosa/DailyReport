@@ -10,13 +10,12 @@
                         </h3>
                     </div>
                     <div class="card bg-secondary border mb-2">
-                        <div class="card-body mx-3" style="max-height:300px;">
-                            <div class="card-title">
-                                <h4 class="card-text text-center text-white">
+                            <div class="card-title row">
+                                <h4 class="card-text text-center text-white col-6 offset-3">
                                     Current Weather:
                                 </h4>
                             </div>
-                            <div class="row">
+                            <div class="row mb-2">
                                 <div class="card-body col-md-3 mx-auto">
                                     <h4 class="card-text text-white text-capitalize text-center">
                                         time:
@@ -24,7 +23,6 @@
                                     <h4 class="card-text text-warning text-capitalize text-center">
                                         <%= currentWeather.time %>
                                     </h4>
-
                                 </div>
                                 <img src="http://openweathermap.org/img/wn/<%= currentWeather.icon %>@4x.png"
                                     class="col-md-6 card-img mx-auto" alt="weather icon"
@@ -37,10 +35,10 @@
                                         <%= currentWeather.desc %>
                                     </h5>
                                     <h5 class="card-text text-warning text-capitalize">
-                                        Temp: <%= currentWeather.temp %> &#176;K
+                                        Temp: <%= currentWeather.temp %> &#176;<%= tempInput==='celcius'?'C':'F' %> 
                                     </h5>
                                     <h5 class="card-text text-white text-capitalize">
-                                        Feels : <%= currentWeather.feels %> &#176;K
+                                        Feels : <%= currentWeather.feels %> &#176;<%= tempInput==='celcius' ?'C':'F' %>
                                     </h5>
                                     <h5 class="card-text text-warning text-capitalize">
                                         Humidity: <%= currentWeather.humidity %>%
@@ -62,7 +60,7 @@
                             <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
                                 <div class="card-group">
                                     <% for(let dt of data['m_data']){ %>
-                                        <div class="card bg-secondary border mb-3" style="width: 18rem; height: 30rem;">
+                                        <div class="card bg-secondary border mb-3">
                                             <div class="card-body mx-auto">
                                                 <div class="card-title ">
                                                     <h4 class="card-text align-self-middle text-white">
@@ -83,10 +81,10 @@
                                                         <%= dt.desc %>
                                                     </p>
                                                     <p class="card-text align-self-middle text-white text-capitalize">
-                                                        Temp: <%= dt.temp %> &#176;K
+                                                        Temp: <%= dt.temp %> &#176;<%= tempInput==='celcius' ?'C':'F' %>
                                                     </p>
                                                     <p class="card-text align-self-middle text-warning text-capitalize">
-                                                        Feels : <%= dt.feels %> &#176;K
+                                                        Feels : <%= dt.feels %> &#176;<%= tempInput==='celcius' ?'C':'F' %>
                                                     </p>
                                                     <p class="card-text align-self-middle text-white text-capitalize">
                                                         Humidity: <%= dt.humidity %>%
